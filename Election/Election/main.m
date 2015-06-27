@@ -6,6 +6,7 @@
 //  Copyright (c) 2015 Mike Kavouras. All rights reserved.
 //
 
+
 #import <Foundation/Foundation.h>
 
 // forward declarations
@@ -201,11 +202,107 @@
 
 @end
 
+// VotingSimulator class
+@interface VotingSimulator : NSObject
+
+-(void)simulate;
+
+@end
+
+@implementation VotingSimulator
+
+-(void)simulate{
+
+    //ask 1
+
+//    index
+//    int i = arc4random_uniform(4);
+//    i++;
+//    
+//    ask
+    
+//    index
+    
+    
+    
+    
+}
+
+@end
+
 
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
+        //Create an Election object, and given the Election a name
+        Election *anElection = [[Election alloc] init];
+        
+        [anElection setElectionName:@"BESTAPP"];
+        
+        //Create a few Contender objects
+        Contender *faceBook = [[Contender alloc] initWithName:@"facebook"];
+        
+        [faceBook name];
+        
+        
+        Contender *weChat = [[Contender alloc] initWithName:@"weChat"];
+        
+        [weChat name];
+        
+        Contender *whatsApp = [[Contender alloc] initWithName:@"whatsApp"];
+        
+        [whatsApp name];
+        
+        Contender *slack = [[Contender alloc] initWithName:@"slack"];
+        
+        [slack name];
+        
+        Contender *twitter = [[Contender alloc] initWithName:@"twitter"];
+        
+        [twitter name];
+        
+        //add these contenders to Election object
+        
+        [anElection addContender:faceBook];
+        [anElection addContender:weChat];
+        [anElection addContender:whatsApp];
+        [anElection addContender:slack];
+        [anElection addContender:twitter];
+        
+        //create a ElectionManager object
+        
+        ElectionManager *anElectionManager = [[ElectionManager alloc] init];
+        //ask ElectionManager to manage the Election object
+        [anElectionManager manage:anElection];
+        //ask ElectionManager to initiatePolling
+        [anElectionManager initiatePolling];
+        //ask ElectionManager to displayResults
+        [anElectionManager displayResults];
+        
+        
         
     }
     return 0;
 }
+/* You are given 3 classes
+ 
+ ElectionManager
+ Conducts an election.
+ Controls start of voting
+ Election
+ Maintains a list of contenders
+ Contender
+ Represents details about a contender
+ What is the contender's name?
+ How many votes has he received?
+ Write a program to simulate an election. Create a class called VotingSimulator. In the main , you are required to do the following:
+ 
+ Create an Election object, and given the Election a name
+ Create a few Contender objects. Add these to the Election object. Make sure that the contender names are distinct!
+ Create a ElectionManager object. Ask it to manage the Election object created above.
+ Ask the ElectionManager to initiatePolling
+ Follow the instructions on the console. After each round of polling you will be asked(within the console) whether you want to continue or not.
+ Ask the ElectionManager to displayResults
+ 
+ */
+
